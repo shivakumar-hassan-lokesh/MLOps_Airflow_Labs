@@ -8,7 +8,7 @@ All tasks are automated through an Airflow DAG.
 
 ## Lab Overview
 
-This lab demonstrates:
+### This lab demonstrates:
 
 Running Airflow entirely inside Docker (no local install needed)
 
@@ -26,7 +26,7 @@ Saving the trained model
 
 Viewing logs and execution graph inside Airflow UI
 
-The DAG runs four automated tasks:
+### The DAG runs four automated tasks:
 
 Load Dataset — read and serialize CSV
 
