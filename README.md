@@ -35,3 +35,82 @@ The pipeline ingests and preprocesses the Wholesale Customers Dataset, trains a 
 - Train & Save K-Means Model — compute SSE for elbow
 
 - Elbow Method Evaluation — identify optimal cluster count
+
+## Lab Structure
+
+LAB_1/
+│
+├── config/
+│   └── airflow.cfg
+│
+├── dags/
+│   ├── data/
+│   │   └── Wholesale customers data.csv       # Custom dataset
+│   │
+│   ├── model/
+│   │   └── wholesale_model.sav               # Saved model
+│   │
+│   ├── src/
+│   │   ├── __init__.py
+│   │   └── lab.py                            # All ML logic
+│   │
+│   └── airflow.py                            # Airflow DAG
+│
+├── logs/                                     # Auto-generated
+├── plugins/
+├── .env
+├── docker-compose.yaml
+├── setup.sh
+└── README.md
+
+## Dataset Used — Wholesale Customers Data
+
+- This dataset contains annual spending of customers across six product categories.
+
+Columns include:
+
+- Fresh
+
+- Milk
+
+- Grocery
+
+- Frozen
+
+- Detergents_Paper
+
+- Delicassen
+
+Your pipeline uses scaled numeric features to build a clustering model.
+
+## Pipeline Steps (Task-by-Task Explanation)
+
+* load_data()
+
+Reads Wholesale customers data.csv
+
+Serializes the DataFrame → pickle → Base64
+
+Returns JSON-safe Base64 string for XCom
+
+2️⃣ data_preprocessing()
+
+Receives Base64 input
+
+Deserializes into DataFrame
+
+Drops missing values
+
+Selects numerical features
+
+Applies MinMaxScaler()
+
+Returns scaled NumPy array encoded in Base64
+
+3️⃣ build_save_model()
+
+Iterates KMeans for k = 1 to 50
+
+Computes SSE (inertia) for each k
+
+Saves the final model to:
