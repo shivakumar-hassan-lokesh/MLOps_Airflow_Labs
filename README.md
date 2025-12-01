@@ -85,32 +85,46 @@ Your pipeline uses scaled numeric features to build a clustering model.
 
 ## Pipeline Steps (Task-by-Task Explanation)
 
-* load_data()
+1. load_data()
 
-Reads Wholesale customers data.csv
+- Reads Wholesale customers data.csv
 
-Serializes the DataFrame → pickle → Base64
+- Serializes the DataFrame → pickle → Base64
 
-Returns JSON-safe Base64 string for XCom
+- Returns JSON-safe Base64 string for XCom
 
-2️⃣ data_preprocessing()
+2. data_preprocessing()
 
-Receives Base64 input
+- Receives Base64 input
 
-Deserializes into DataFrame
+- Deserializes into DataFrame
 
-Drops missing values
+- Drops missing values
 
-Selects numerical features
+- Selects numerical features
 
-Applies MinMaxScaler()
+- Applies MinMaxScaler()
 
-Returns scaled NumPy array encoded in Base64
+- Returns scaled NumPy array encoded in Base64
 
-3️⃣ build_save_model()
+3️. build_save_model()
 
-Iterates KMeans for k = 1 to 50
+- Iterates KMeans for k = 1 to 50
 
-Computes SSE (inertia) for each k
+- Computes SSE (inertia) for each k
 
-Saves the final model to:
+- Saves the final model to: dags/model/wholesale_model.sav
+
+4. load_model_elbow()
+
+- Loads saved model
+
+- Uses KneeLocator to compute the elbow point
+
+- Prints: Optimal no. of clusters: X
+
+- Runs prediction on test data if present
+
+- Returns JSON-safe prediction
+
+
