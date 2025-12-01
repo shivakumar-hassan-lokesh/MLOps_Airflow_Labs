@@ -40,28 +40,28 @@ The pipeline ingests and preprocesses the Wholesale Customers Dataset, trains a 
 
 LAB_1/
 │
-├── config/
-│   └── airflow.cfg
+├─ config/
+│   └─ airflow.cfg
 │
-├── dags/
-│   ├── data/
-│   │   └── Wholesale customers data.csv       # Custom dataset
+├─ dags/
+│   ├─ data/
+│   │   └─ Wholesale customers data.csv          # Custom dataset
 │   │
-│   ├── model/
-│   │   └── wholesale_model.sav               # Saved model
+│   ├─ model/
+│   │   └─ wholesale_model.sav                   # Saved model
 │   │
-│   ├── src/
-│   │   ├── __init__.py
-│   │   └── lab.py                            # All ML logic
+│   ├─ src/
+│   │   ├─ __init__.py
+│   │   └─ lab.py                                # All ML logic
 │   │
-│   └── airflow.py                            # Airflow DAG
+│   └─ airflow.py                                # Airflow DAG
 │
-├── logs/                                     # Auto-generated
-├── plugins/
-├── .env
-├── docker-compose.yaml
-├── setup.sh
-└── README.md
+├─ logs/                                         # Auto-generated
+├─ plugins/
+├─ .env
+├─ docker-compose.yaml
+├─ setup.sh
+└─ README.md
 
 
 ## Dataset Used — Wholesale Customers Data
