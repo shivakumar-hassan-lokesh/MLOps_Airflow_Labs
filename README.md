@@ -1,4 +1,4 @@
-#Airflow Lab 1
+# Airflow Lab 1
 End-to-End K-Means ML Workflow Orchestrated with Apache Airflow & Docker
 
 This project implements a complete MLOps workflow using Apache Airflow running inside Docker containers.
