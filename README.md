@@ -37,7 +37,7 @@ The pipeline ingests and preprocesses the Wholesale Customers Dataset, trains a 
 - Elbow Method Evaluation — identify optimal cluster count
 
 ## Lab Structure
-
+```
 LAB_1/
 │
 ├─ config/
@@ -62,7 +62,7 @@ LAB_1/
 ├─ docker-compose.yaml
 ├─ setup.sh
 └─ README.md
-
+```
 
 ## Dataset Used — Wholesale Customers Data
 
